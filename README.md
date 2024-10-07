@@ -20,7 +20,6 @@ time we push a new commit on main branch.
 
 - [🌎 Open web application 🌎](https://amir14a.github.io/new_horizon_challenge_app/)
 - [🤖 Download apk for android 🤖](https://github.com/amir14a/new_horizon_challenge_app/releases/latest)
--
 
 ## Thanks
 
