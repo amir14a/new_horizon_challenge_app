@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_horizon_challenge_app/presentation/screens/home/cubit/home_cubit.dart';
 import 'package:new_horizon_challenge_app/presentation/screens/home/cubit/home_state.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:new_horizon_challenge_app/presentation/widgets/addresses/addresses.dart';
 import 'package:new_horizon_challenge_app/utils/assets.dart';
 import 'package:new_horizon_challenge_app/utils/colors.dart';
 
@@ -26,7 +27,7 @@ class HomePageView extends StatelessWidget {
                         child: SvgPicture.asset(MENU_ICON),
                       ),
                       Expanded(
-                        child: SizedBox(), //TODO:Put addresses list here
+                        child: AddressesWidget(), //TODO:Put addresses list here
                       ),
                       InkResponse(
                         onTap: () {},

@@ -8,6 +8,7 @@ class LoadingAddressesState extends AddressesState {}
 
 class ResponseAddressesState extends AddressesState {
   final List<LocationAddress> list;
+  final LocationAddress selected;
 
-  ResponseAddressesState(this.list);
+  ResponseAddressesState(this.list, this.selected);
 }
