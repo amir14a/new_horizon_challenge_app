@@ -12,7 +12,11 @@ class App extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: MaterialApp(
-        home: HomePage(),
+        debugShowCheckedModeBanner: false,
+        home: Directionality(
+          textDirection: TextDirection.rtl,
+          child: HomePage(),
+        ),
         theme: mainTheme,
         scrollBehavior: ScrollConfiguration.of(context).copyWith(dragDevices: {
           PointerDeviceKind.touch,
