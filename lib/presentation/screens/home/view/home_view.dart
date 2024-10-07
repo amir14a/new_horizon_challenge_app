@@ -4,6 +4,7 @@ import 'package:new_horizon_challenge_app/presentation/screens/home/cubit/home_c
 import 'package:new_horizon_challenge_app/presentation/screens/home/cubit/home_state.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:new_horizon_challenge_app/presentation/widgets/addresses/addresses.dart';
+import 'package:new_horizon_challenge_app/presentation/widgets/loan_box_list/loan_box_list.dart';
 import 'package:new_horizon_challenge_app/utils/assets.dart';
 import 'package:new_horizon_challenge_app/utils/colors.dart';
 
@@ -51,7 +52,8 @@ class HomePageView extends StatelessWidget {
                       )
                     ],
                   ),
-                )
+                ),
+                Expanded(child: LoanBoxListWidget())
               ],
             ),
           ),
