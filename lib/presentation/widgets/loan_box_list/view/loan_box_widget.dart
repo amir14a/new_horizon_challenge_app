@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:new_horizon_challenge_app/data/models/loan_box_model.dart';
+import 'package:new_horizon_challenge_app/presentation/widgets/loan_box_list/view/progress_painter.dart';
 import 'package:new_horizon_challenge_app/utils/assets.dart';
 import 'package:new_horizon_challenge_app/utils/colors.dart';
 
@@ -24,7 +25,7 @@ class _LoanBoxWidgetState extends State<LoanBoxWidget> with SingleTickerProvider
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 24,horizontal: 16),
+              padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
               child: Row(
                 children: [
                   Expanded(
@@ -49,11 +50,9 @@ class _LoanBoxWidgetState extends State<LoanBoxWidget> with SingleTickerProvider
                       children: [
                         SizedBox.square(
                           dimension: 120,
-                          child: CircularProgressIndicator(
-                            value: (widget.model.progressPercent??0)/100,
-                            color: appPrimaryColor,
-                            strokeWidth: 16,
-                            strokeCap: StrokeCap.round,
+                          child: CustomPaint(
+                            painter: ProgressPainter(progressPercent: widget.model.progressPercent ?? 0),
+                            size: Size(120,120),
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -80,7 +79,10 @@ class _LoanBoxWidgetState extends State<LoanBoxWidget> with SingleTickerProvider
               ],
             ),
             const SizedBox(height: 8),
-            Divider(color: dividerColor,height: 0,),
+            Divider(
+              color: dividerColor,
+              height: 0,
+            ),
             const SizedBox(height: 16),
             SizedBox(
               height: 60,
