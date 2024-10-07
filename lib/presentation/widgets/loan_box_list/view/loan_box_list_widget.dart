@@ -26,21 +26,25 @@ class LoanBoxListWidget extends StatelessWidget {
               child: PageView(
                 controller: pageController,
                 children: [
-                  ...[0, 1, 2].map((e) => AnimatedBuilder(
+                  ...[0, 1, 2].map((e) =>
+                      AnimatedBuilder(
                         animation: pageController,
-                        builder: (BuildContext context, Widget? child) => Align(
-                          alignment: Alignment.topCenter,
-                          child: Transform.scale(
-                            scaleY: 1 - (e - (pageController.page ?? 0)).abs() / 10,
-                            child: Container(
-                              margin: EdgeInsets.all(6),
-                              width: double.infinity,
-                              height: 300,
-                              decoration:
+                        builder: (BuildContext context, Widget? child) =>
+                            Align(
+                              alignment: Alignment.topCenter,
+                              child: Transform.scale(
+                                scaleY: pageController.position.haveDimensions
+                                    ? 1 - (e - (pageController.page ?? 0)).abs() / 10
+                                    : 1,
+                                child: Container(
+                                  margin: EdgeInsets.all(6),
+                                  width: double.infinity,
+                                  height: 300,
+                                  decoration:
                                   BoxDecoration(color: Colors.grey, borderRadius: BorderRadius.circular(16)),
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
                       ))
                 ],
               ),
@@ -52,26 +56,23 @@ class LoanBoxListWidget extends StatelessWidget {
                 for (int i = 0; i < state.list.length; i++)
                   AnimatedBuilder(
                     animation: pageController,
-                    builder: (BuildContext context, Widget? child) => Align(
-                      alignment: Alignment.topCenter,
-                      child: Transform.scale(
-                          scaleY: 1 - (i - (pageController.page ?? 0)).abs() / 10,
-                          child: Padding(
-                            padding: const EdgeInsets.all(6),
-                            child: LoanBoxWidget(state.list[i]),
-                          )),
-                    ),
+                    builder: (BuildContext context, Widget? child) =>
+                        Align(
+                          alignment: Alignment.topCenter,
+                          child: Transform.scale(
+                              scaleY: pageController.position.haveDimensions
+                                  ? 1 - (i - (pageController.page ?? 0)).abs() / 10
+                                  : 1,
+                              child: Padding(
+                                padding: const EdgeInsets.all(6),
+                                child: LoanBoxWidget(state.list[i]),
+                              )),
+                        ),
                   )
               ],
             );
           }
-          return AnimatedSize(
-            duration: kThemeAnimationDuration,
-            child: AnimatedSwitcher(
-              duration: kThemeAnimationDuration,
-              child: child,
-            ),
-          );
+          return child;
         },
       ),
     );
