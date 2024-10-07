@@ -33,6 +33,36 @@ abstract class MockData {
       progressPercent: 80,
       billingDate: '2024-12-15 00:00:00',
     ),
+    LoanBox(
+      id: 4,
+      title: 'صندوق وام کارگاه',
+      secondTitle: 'صندوق کارگران',
+      totalAmount: 3000000,
+      position: 'مدیر',
+      membersCount: 30,
+      progressPercent: 95,
+      billingDate: '2024-12-26 00:00:00',
+    ),
+    LoanBox(
+      id: 5,
+      title: 'صندوق وام دوستان',
+      secondTitle: 'صندوق دوستانه',
+      totalAmount: 12000000,
+      position: 'شرکت کننده',
+      membersCount: 3,
+      progressPercent: 10,
+      billingDate: '2025-01-01 00:00:00',
+    ),
+    LoanBox(
+      id: 6,
+      title: 'صندوق وام منزل',
+      secondTitle: 'صندوق خانواده',
+      totalAmount: 2000000,
+      position: 'دستیار',
+      membersCount: 4,
+      progressPercent: 50,
+      billingDate: '2025-02-07 00:00:00',
+    ),
   ];
   static final mockAddresses = [
     LocationAddress(
