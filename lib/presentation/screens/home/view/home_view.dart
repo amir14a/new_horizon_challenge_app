@@ -7,6 +7,7 @@ import 'package:new_horizon_challenge_app/presentation/widgets/addresses/address
 import 'package:new_horizon_challenge_app/presentation/widgets/loan_box_list/loan_box_list.dart';
 import 'package:new_horizon_challenge_app/utils/assets.dart';
 import 'package:new_horizon_challenge_app/utils/colors.dart';
+import 'package:new_horizon_challenge_app/utils/extension_functions.dart';
 
 class HomePageView extends StatelessWidget {
   const HomePageView({super.key});
@@ -47,7 +48,7 @@ class HomePageView extends StatelessWidget {
                       ),
                       Spacer(),
                       Text(
-                        '16 مهر 1403', //TODO: Get it from current date
+                        DateTime.now().toPersianDate,
                         style: TextStyle(fontSize: 18, color: normalTextColor, fontWeight: FontWeight.bold),
                       )
                     ],
