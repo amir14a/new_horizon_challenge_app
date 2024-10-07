@@ -15,6 +15,18 @@ class LoanBoxWidget extends StatefulWidget {
 }
 
 class _LoanBoxWidgetState extends State<LoanBoxWidget> with SingleTickerProviderStateMixin {
+  late AnimationController animation;
+
+  @override
+  void initState() {
+    animation = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 3),
+    );
+    Future.delayed(Duration(seconds: 1)).then((_) => animation.forward());
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return IntrinsicHeight(
@@ -48,11 +60,23 @@ class _LoanBoxWidgetState extends State<LoanBoxWidget> with SingleTickerProvider
                   Expanded(
                     child: Column(
                       children: [
-                        SizedBox.square(
-                          dimension: 120,
-                          child: CustomPaint(
-                            painter: ProgressPainter(progressPercent: widget.model.progressPercent ?? 0),
-                            size: Size(120,120),
+                        GestureDetector(
+                          onTap: () => animation.forward(from: 0),
+                          child: AnimatedBuilder(
+                            animation: animation,
+                            builder: (context, _) {
+                              var progress =
+                                  Tween<double>(begin: 0, end: widget.model.progressPercent?.toDouble() ?? 0)
+                                      .animate(CurvedAnimation(parent: animation, curve: Curves.easeOutCubic))
+                                      .value;
+                              return SizedBox.square(
+                                dimension: 120,
+                                child: CustomPaint(
+                                  painter: ProgressPainter(progressPercent: progress),
+                                  size: Size(120, 120),
+                                ),
+                              );
+                            },
                           ),
                         ),
                         const SizedBox(height: 4),

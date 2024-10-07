@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:new_horizon_challenge_app/utils/colors.dart';
 
 class ProgressPainter extends CustomPainter {
-  final int progressPercent;
+  final double progressPercent;
 
   const ProgressPainter({this.progressPercent = 0});
 
@@ -21,14 +21,12 @@ class ProgressPainter extends CustomPainter {
       ..strokeCap = StrokeCap.round;
     Paint shadowPaint = Paint()
       ..color = appPrimaryColor.withOpacity(0.24)
-      ..style=PaintingStyle.stroke
-      ..strokeWidth=18
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 18
       ..maskFilter = MaskFilter.blur(BlurStyle.normal, 6);
     Path p = Path();
-    p.addOval(Rect.fromCircle(center: Offset(size.width / 2, size.height / 2), radius: size.width / 2-8));
+    p.addOval(Rect.fromCircle(center: Offset(size.width / 2, size.height / 2), radius: size.width / 2 - 8));
     canvas.drawPath(p, shadowPaint);
-
-
 
     canvas.drawCircle(Offset(size.width / 2, size.height / 2), size.width / 2 - 8, bgPaint);
 
@@ -54,7 +52,7 @@ class ProgressPainter extends CustomPainter {
 
     final textPainter = TextPainter(
       text: TextSpan(
-        text: '%$progressPercent',
+        text: '%${progressPercent.toStringAsFixed(0)}',
         style: TextStyle(
           fontFamily: 'Vazirmatn',
           color: Colors.black,
