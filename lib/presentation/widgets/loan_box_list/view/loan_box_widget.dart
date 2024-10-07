@@ -32,8 +32,9 @@ class _LoanBoxWidgetState extends State<LoanBoxWidget> with SingleTickerProvider
     return IntrinsicHeight(
       child: Card(
         margin: EdgeInsets.zero,
+        shadowColor: Colors.grey.shade100,
         color: Colors.white,
-        elevation: 8,
+        elevation: 6,
         child: Column(
           children: [
             Padding(
