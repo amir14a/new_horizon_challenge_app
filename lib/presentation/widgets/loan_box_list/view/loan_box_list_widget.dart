@@ -16,7 +16,7 @@ class LoanBoxListWidget extends StatelessWidget {
       create: (BuildContext context) => LoanBoxListCubit(),
       child: BlocBuilder<LoanBoxListCubit, LoanBoxListState>(
         builder: (BuildContext context, LoanBoxListState state) {
-          var pageController = PageController(viewportFraction: .85);
+          var pageController = PageController(viewportFraction: .9);
           Widget child = SizedBox();
           if (state is LoadingLoanBoxListState) {
             child = Shimmer.fromColors(

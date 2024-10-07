@@ -10,6 +10,7 @@ abstract class MockData {
       totalAmount: 5000000,
       position: 'مدیر',
       membersCount: 12,
+      progressPercent: 34,
       billingDate: '2024-11-07 00:00:00',
     ),
     LoanBox(
@@ -19,15 +20,17 @@ abstract class MockData {
       totalAmount: 20000000,
       position: 'شرکت کننده',
       membersCount: 20,
+      progressPercent: 56,
       billingDate: '2024-11-02 00:00:00',
     ),
     LoanBox(
       id: 3,
       title: 'صندوق وام شرکت',
-      secondTitle: 'صندوق قرعه کشی کارمندی',
+      secondTitle: 'صندوق کارمندی',
       totalAmount: 10000000,
       position: 'دستیار',
       membersCount: 7,
+      progressPercent: 80,
       billingDate: '2024-12-15 00:00:00',
     ),
   ];

@@ -1,3 +1,6 @@
+import 'package:intl/intl.dart' as intl;
+import 'package:shamsi_date/shamsi_date.dart';
+
 class LoanBox {
   int? id;
   String? title;
@@ -5,6 +8,7 @@ class LoanBox {
   int? totalAmount;
   String? position;
   int? membersCount;
+  int? progressPercent;
   String? billingDate;
 
   LoanBox({
@@ -14,6 +18,7 @@ class LoanBox {
     this.totalAmount,
     this.position,
     this.membersCount,
+    this.progressPercent,
     this.billingDate,
   });
 
@@ -24,6 +29,7 @@ class LoanBox {
     totalAmount = json['totalAmount'];
     position = json['position'];
     membersCount = json['membersCount'];
+    progressPercent = json['progressPercent'];
     billingDate = json['billingDate'];
   }
 
@@ -35,7 +41,24 @@ class LoanBox {
     map['totalAmount'] = totalAmount;
     map['position'] = position;
     map['membersCount'] = membersCount;
+    map['progressPercent'] = progressPercent;
     map['billingDate'] = billingDate;
     return map;
+  }
+}
+
+extension LoanBoxModelX on LoanBox {
+  String get persianBillingDate {
+    try {
+      var dateTime = intl.DateFormat("yyyy-MM-dd' 'HH:mm:ss").parse(billingDate ?? '');
+      final f = Jalali.fromDateTime(dateTime).formatter;
+      return "${f.d} ${f.mN} ${f.yyyy}";
+    } catch (e) {
+      return 'خطا در تبدیل تاریخ';
+    }
+  }
+
+  String get formattedTotalAmount {
+    return '${intl.NumberFormat.decimalPattern().format(totalAmount)} تومان';
   }
 }
