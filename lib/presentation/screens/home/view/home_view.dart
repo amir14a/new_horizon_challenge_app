@@ -28,7 +28,7 @@ class HomePageView extends StatelessWidget {
                         child: SvgPicture.asset(MENU_ICON),
                       ),
                       Expanded(
-                        child: AddressesWidget(), //TODO:Put addresses list here
+                        child: AddressesWidget(),
                       ),
                       InkResponse(
                         onTap: () {},
